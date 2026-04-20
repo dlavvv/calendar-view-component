@@ -12,6 +12,15 @@ A lightweight and easy-to-use tool for integrating a monthly calendar into your 
 - **Custom Events:** Emits a standard event whenever a date is selected
 - **Framework Agnostic:** Works everywhere (React, Vue, Angular, or plain HTML/JS)
 
+## Requirements
+
+- **Node.js**: 18.x or higher (recommended)
+- **Browser**: Modern browsers with Custom Elements (V1) and Shadow DOM support (Chrome, Firefox, Safari, Edge)  
+
+#### This package is published as an **ES Module**. To use it effectively:
+- **With a Bundler:** Use a modern build tool like **Vite**, **Webpack**, or **Rollup**. They will automatically handle the `lit` dependencies for you.
+- **Without a Bundler:** If you are not using a build tool, you will need to use an [import map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#import_maps) to tell the browser where to find the Lit library.
+
 ## Installation
 
 Install the component via npm:
@@ -57,23 +66,51 @@ The component is designed with modular styling. Currently, it supports two disti
 **Dark Mode:** Optimized for high-contrast dashboards and late-night usage (Default).  
 **Light Mode:** A clean, professional look for standard light-themed applications.
 
+<img src="https://github.com/user-attachments/assets/2cad7279-3ba6-4ba3-8c37-974240b689b9" alt="Dark Mode" width="27%">
+<img src="https://github.com/user-attachments/assets/5d1f30a1-edbe-49b4-8c88-23d318c10adf" alt="Light Mode" width="27%">
+
+Of course, you can also fully customize your calendar by creating a new stylesheet or modifying the existing ones.
+
+### How to change styles
+
+#### Light Mode
+Change the import and the `static styles` property as follows:
+
+```javascript
+import { lightMode } from './styles/light.js';
+
+// inside your class:
+static styles = lightMode;
+```
+#### Dark Mode
+
+Similarly, for Dark Mode, use the dark styles import:
+
+```javascript
+import { darkMode } from './styles/dark.js';
+
+// inside your class:
+static styles = darkMode;
+```
+
+
 > [!NOTE]
-> The theme is applied at the build level via the component's static styles. Future versions will include a toggle property for dynamic switching.
+> Future versions will include a toggle property for dynamic switching.
 
 
 ## API References
 
 | Property  | Type | Default | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| currentMonth  | Number | Current Month | The month currently displayed (0-11) |
-| currentYear  | Number | Current Year | The year currently displayed |
-| selectedDay | Number | Today | The currently highlighted day |
+| `currentMonth`  | Number | Current Month | The month currently displayed (0-11) |
+| `currentYear`  | Number | Current Year | The year currently displayed |
+| `selectedDay` | Number | Today | The currently highlighted day |
 
 
 ## Events
 | Event Name	| Detail	| Description |
 | ------------- | ------------- | ------------- |
-| date-selected |	{ date: string } |	Fired when a user selects a valid day |
+| `date-selected` |	{ date: string } |	Fired when a user selects a valid day |
 
 ## License
 
