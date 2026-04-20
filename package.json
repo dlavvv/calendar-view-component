@@ -1,0 +1,33 @@
+{
+  "name": "@dlavvv/calendar-view-component",
+  "version": "1.0.0",
+  "description": "A customizable calendar web component built with Lit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "wds --node-resolve --watch --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlavvv/calendar-view-component.git"
+  },
+  "keywords": [],
+  "author": "dlavvv",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/dlavvv/calendar-view-component/issues"
+  },
+  "homepage": "https://github.com/dlavvv/calendar-view-component#readme",
+  "dependencies": {
+    "lit": "^3.3.2"
+  },
+  "devDependencies": {
+    "@web/dev-server": "^0.4.6"
+  },
+  "files": [
+    "src/",
+    "index.js",
+    "README.md"
+  ]
+}
