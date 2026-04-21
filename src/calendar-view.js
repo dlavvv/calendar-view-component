@@ -52,8 +52,10 @@ export class CalendarView extends LitElement {
 
     _prevMonth(){
         if(this.currentMonth === 0){
-            this.currentMonth = 11;
-            this.currentYear--;
+            if(this.currentYear > 2020){
+                this.currentMonth = 11;
+                this.currentYear--;
+            }
         }else{
             this.currentMonth--;
         }
@@ -61,8 +63,10 @@ export class CalendarView extends LitElement {
 
     _nextMonth(){
         if(this.currentMonth === 11){
-            this.currentMonth = 0;
-            this.currentYear++;
+            if(this.currentYear < 2030){
+                this.currentMonth = 0;
+                this.currentYear++;
+            }
         }else{
             this.currentMonth++;
         }
@@ -109,21 +113,25 @@ export class CalendarView extends LitElement {
 
     return html`
             <div class="header">
-                <button class="nav-btn" @click="${this._prevMonth}"> < </button>
+                <button class="nav-btn" 
+                        @click="${this._prevMonth}" 
+                        ?disabled="${this.currentYear === 2020 && this.currentMonth === 0}"> < </button>
 
                 <div class="selectors">
-                    <select .value="${this.currentMonth}" @change="${(e) => this.currentMonth = Number(e.target.value)}">
+                    <select .value="${this.currentMonth}" 
+                            @change="${(e) => this.currentMonth = Number(e.target.value)}">
                                     ${monthNames.map((name, index) => 
                                         html`<option value="${index}" ?selected="${index === this.currentMonth}">${name}</option>`)}
                     </select>
 
-                    <select .value="${this.currentYear}" @change="${(e) => this.currentYear = Number(e.target.value)}">
-                                    ${years.map(year => 
-                                        html`<option value="${year}" ?selected="${year === this.currentYear}">${year}</option>`)}
+                    <select .value="${this.currentYear}" 
+                            @change="${(e) => this.currentYear = Number(e.target.value)}">
+                                    ${years.map(year => html`<option value="${year}" ?selected="${year === this.currentYear}">${year}</option>`)}
                     </select>
                 </div>
                 
-                <button class="nav-btn" @click="${this._nextMonth}"> > </button>
+                <button class="nav-btn" @click="${this._nextMonth}"
+                        ?disabled="${this.currentYear === 2030 && this.currentMonth === 11}"> > </button>
             </div>
 
             <div class="grid">

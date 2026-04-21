@@ -43,6 +43,16 @@ export const darkMode = css`
 
         .nav-btn:active { transform: scale(0.95); }
 
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .nav-btn:disabled:hover {
+            background: #f1f1f5;
+            transform: none;
+        }
+
         .selectors {
             display: flex;
             gap: 6px;
