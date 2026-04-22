@@ -17,16 +17,22 @@ A lightweight and easy-to-use tool for integrating a monthly calendar into your 
 - **Node.js**: 18.x or higher (recommended)
 - **Browser**: Modern browsers with Custom Elements (V1) and Shadow DOM support (Chrome, Firefox, Safari, Edge)  
 
-#### This package is published as an **ES Module**. To use it effectively:
-- **With a Bundler:** Use a modern build tool like **Vite**, **Webpack**, or **Rollup**. They will automatically handle the `lit` dependencies for you.
-- **Without a Bundler:** If you are not using a build tool, you will need to use an [import map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#import_maps) to tell the browser where to find the Lit library.
-
 ## Installation
 
-Install the component via npm:
+___Option 1:___ Install the component via npm:
 
 ```bash
 npm install @dlavvv/calendar-view-component
+```
+
+> [!NOTE]
+> This package is published as an **ES Module**. To use it effectively with _npm_:
+> - **With a Bundler:** Use a modern build tool like **Vite**, **Webpack**, or **Rollup**. They will automatically handle the `lit` dependencies for you.
+> - **Without a Bundler:** If you are not using a build tool, you will need to use an [import map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#import_maps) to tell the browser where to find the Lit library.
+
+___Option 2:___ Using CDN link directly in your HTML:
+```html
+<script type="module" src="https://esm.sh/@dlavvv/calendar-view-component"></script>
 ```
 
 ## Usage
@@ -48,7 +54,7 @@ Simply add the custom element to your HTML file:
 
 ### 3. Handle interactions
 
-The component dispatches a date-selected custom event whenever a user clicks on a day. You can capture the selected date like this:
+The component dispatches a `date-selected` custom event whenever a user clicks on a day. You can capture the selected date like this:
 
 ```javascript
 const calendar = document.querySelector('calendar-view');
