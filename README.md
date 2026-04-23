@@ -38,6 +38,7 @@ ___Option 2:___ Using CDN link directly in your HTML:
 ## Usage
 
 ### 1. Import the component
+_(If you used the CDN option, you can skip this step)_  
 In your JavaScript/TypeScript entry point (e.g., `main.js` or `app.js`):
 
 ```javascript
